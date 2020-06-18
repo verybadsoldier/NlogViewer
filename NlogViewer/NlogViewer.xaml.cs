@@ -6,6 +6,7 @@ using System.Windows;
 using System.Windows.Controls;
 using NLog;
 using NLog.Common;
+using NLog.Config;
 
 namespace NlogViewer
 {
@@ -89,6 +90,17 @@ namespace NlogViewer
 
             InitializeComponent();
 
+            NLog.LogManager.ConfigurationReloaded += LogManagerOnConfigurationReloaded;
+            AttachToConfig();
+        }
+
+        private void LogManagerOnConfigurationReloaded(object sender, LoggingConfigurationReloadedEventArgs e)
+        {
+            Application.Current.Dispatcher.Invoke(new Action(AttachToConfig));
+        }
+
+        protected void AttachToConfig()
+        {
             if (!DesignerProperties.GetIsInDesignMode(this))
             {
                 foreach (NlogViewerTarget target in LogManager.Configuration.AllTargets.Where(t => t is NlogViewerTarget).Cast<NlogViewerTarget>())

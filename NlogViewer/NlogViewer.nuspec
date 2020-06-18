@@ -6,14 +6,14 @@
     <title>$title$</title>
     <authors>Erik Zetterqvist</authors>
     <owners>$author$</owners>
-    <projectUrl>https://github.com/erizet/NlogViewer</projectUrl>
+    <projectUrl>https://github.com/verybadsoldier/NlogViewer</projectUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>$description$</description>
-    <releaseNotes>Autoscroll.</releaseNotes>
+    <releaseNotes>fixed config reload</releaseNotes>
     <copyright>Copyright 2013</copyright>
     <tags>NLog WPF Control</tags>
     <dependencies>
-      <dependency id="NLog" version="3.0.0.0" />
+      <dependency id="NLog" version="4.6.8.0" />
     </dependencies>
   </metadata>
   <files>
